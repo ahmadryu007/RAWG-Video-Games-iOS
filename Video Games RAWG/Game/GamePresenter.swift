@@ -22,6 +22,19 @@ final class GamePresenter: GamePresenterInterface {
     
     func loadDetailGame() {
         interactor.fetchGameDetailBy(id: game.id ?? 0)
+        interactor.fetchFavoriteGames()
+    }
+    
+    func addToFavorite() {
+        DispatchQueue.main.async {
+            self.interactor.addToFavorite(game: self.game)
+        }
+    }
+    
+    func removeFromFavorite() {
+        DispatchQueue.main.async {
+            self.interactor.removeFromFavorite(game: self.game)
+        }
     }
 }
 
@@ -32,5 +45,13 @@ extension GamePresenter: GameInteractorOutputInterface {
     
     func fetchGameDetailFail(error: String) {
         view?.showError(message: error)
+    }
+    
+    func fetchFavoriteGamesSuccess(favorites: [Game]) {
+        view?.setFavoriteState(isFavorite: favorites.contains(
+            where: { entity in
+                entity.id == game.id
+            })
+        )
     }
 }

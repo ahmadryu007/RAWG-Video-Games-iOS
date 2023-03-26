@@ -58,26 +58,26 @@ struct YearYear: Codable {
 
 // MARK: - Result
 struct Game: Codable {
-    let id: Int?
-    let slug, name, released: String?
-    let tba: Bool?
-    let backgroundImage: String?
-    let rating: Double?
-    let ratingTop: Int?
-    let ratings: [Rating]?
-    let ratingsCount, reviewsTextCount, added: Int?
-    let addedByStatus: AddedByStatus?
-    let metacritic, playtime, suggestionsCount: Int?
-    let updated: String?
-    let userGame: String?
-    let reviewsCount: Int?
-    let saturatedColor, dominantColor: String?
-    let genres: [Genre]?
-    let stores: [Store]?
-    let clip: String?
-    let tags: [Genre]?
-    let esrbRating: EsrbRating?
-    let shortScreenshots: [ShortScreenshot]?
+    var id: Int?
+    var slug, name, released: String?
+    var tba: Bool?
+    var backgroundImage: String?
+    var rating: Double?
+    var ratingTop: Int?
+    var ratings: [Rating]?
+    var ratingsCount, reviewsTextCount, added: Int?
+    var addedByStatus: AddedByStatus?
+    var metacritic, playtime, suggestionsCount: Int?
+    var updated: String?
+    var userGame: String?
+    var reviewsCount: Int?
+    var saturatedColor, dominantColor: String?
+    var genres: [Genre]?
+    var stores: [Store]?
+    var clip: String?
+    var tags: [Genre]?
+    var esrbRating: EsrbRating?
+    var shortScreenshots: [ShortScreenshot]?
 
     enum CodingKeys: String, CodingKey {
         case id, slug, name, released, tba

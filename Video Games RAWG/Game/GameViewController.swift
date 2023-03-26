@@ -63,6 +63,26 @@ extension GameViewController: GameViewInterface {
             self?.present(alert, animated: true)
         }
     }
+    
+    func setFavoriteState(isFavorite: Bool) {
+        let rightBarIcon = UIImage(systemName: isFavorite ? "heart.fill" : "heart")
+        let rightBarItem = UIBarButtonItem(image: rightBarIcon, style: .plain, target: self, action: #selector(rightBarItemTap(_:)))
+        rightBarItem.tag = isFavorite ? 1 : 0
+        
+        DispatchQueue.main.async { [weak self] in
+            self?.navigationItem.rightBarButtonItem = rightBarItem
+        }
+    }
+    
+    @objc func rightBarItemTap(_ sender: UIBarButtonItem) {
+        if sender.tag == 1 {
+            presenter.removeFromFavorite()
+            setFavoriteState(isFavorite: false)
+        } else {
+            presenter.addToFavorite()
+            setFavoriteState(isFavorite: true)
+        }
+    }
 }
 
 extension String {

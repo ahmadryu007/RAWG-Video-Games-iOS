@@ -22,4 +22,11 @@ final class FavoriteRouter: FavoriteRouterInterface {
         view.presenter = presenter
         interactor.presenter = presenter
     }
+    
+    func goToDetail(game: Game) {
+        view.navigationController?.pushViewController(
+            GameRouter(game: game).view,
+            animated: true
+        )
+    }
 }
