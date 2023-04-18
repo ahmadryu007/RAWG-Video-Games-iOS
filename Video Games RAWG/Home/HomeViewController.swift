@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Combine
 
 final class HomeViewController: UIViewController {
 
@@ -15,10 +16,12 @@ final class HomeViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
+    
+    private var cancellables: Set<AnyCancellable> = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         presenter.loadGames()
-        searchBar.delegate = self
     
         tableView.delegate = self
         tableView.dataSource = self
@@ -27,18 +30,33 @@ final class HomeViewController: UIViewController {
             UINib(nibName: "GameTableViewCell", bundle: Bundle(for: GameTableViewCell.self)),
             forCellReuseIdentifier: "GameTableViewCell"
         )
+        
+        setupCombine()
     }
 
+    @IBAction func aboutButtonTapped(_ sender: Any) {
+        let aboutViewController = AboutViewController(
+            nibName: String(describing: AboutViewController.self),
+            bundle: Bundle(for: AboutViewController.self)
+        )
+        
+        present(aboutViewController, animated: true)
+    }
 }
 
-extension HomeViewController: UISearchBarDelegate {
-    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        NSObject.cancelPreviousPerformRequests(withTarget: self, selector: #selector(self.performSearch(_:)), object: searchBar)
-            perform(#selector(self.performSearch(_:)), with: searchBar, afterDelay: 0.5)
-    }
-    
-    @objc func performSearch(_ searchBar: UISearchBar) {
-        presenter.searchGame(query: searchBar.text ?? "")
+extension HomeViewController {
+    private func setupCombine() {
+        NotificationCenter.default.publisher(for:
+                                                UISearchTextField.textDidChangeNotification,
+                                             object: searchBar.searchTextField)
+        .map {
+            ($0.object as! UISearchTextField).text
+        }
+        .sink { [weak self] value in
+            guard let self = self, let value = value, value.count % 3 == 0  else { return }
+            self.presenter.searchGame(query: value)
+        }
+        .store(in: &cancellables)
     }
 }
 

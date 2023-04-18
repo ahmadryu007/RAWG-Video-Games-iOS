@@ -30,10 +30,25 @@
                             <color key="textColor" systemColor="systemBackgroundColor"/>
                             <nil key="highlightedColor"/>
                         </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cRd-Cu-7hq">
+                            <rect key="frame" x="289" y="82.666666666666671" width="96" height="35"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="35" id="rdC-L7-eRk"/>
+                                <constraint firstAttribute="width" constant="96" id="reJ-EW-0oj"/>
+                            </constraints>
+                            <buttonConfiguration key="configuration" style="plain" image="info.circle.fill" catalog="system" title="About">
+                                <color key="baseForegroundColor" systemColor="systemBackgroundColor"/>
+                            </buttonConfiguration>
+                            <connections>
+                                <action selector="aboutButtonTapped:" destination="-1" eventType="touchUpInside" id="rkl-Wu-N7j"/>
+                            </connections>
+                        </button>
                     </subviews>
                     <color key="backgroundColor" systemColor="systemCyanColor"/>
                     <constraints>
+                        <constraint firstAttribute="trailing" secondItem="cRd-Cu-7hq" secondAttribute="trailing" constant="8" id="Yj2-q2-dvg"/>
                         <constraint firstAttribute="bottom" secondItem="hzp-re-Vw6" secondAttribute="bottom" constant="16" id="faq-R9-htY"/>
+                        <constraint firstItem="cRd-Cu-7hq" firstAttribute="centerY" secondItem="hzp-re-Vw6" secondAttribute="centerY" id="lxq-Mb-071"/>
                         <constraint firstAttribute="height" constant="131" id="wba-9k-71K"/>
                         <constraint firstItem="hzp-re-Vw6" firstAttribute="leading" secondItem="VjP-Ja-mzU" secondAttribute="leading" constant="16" id="xEl-VR-FVd"/>
                     </constraints>
@@ -76,6 +91,7 @@
         </view>
     </objects>
     <resources>
+        <image name="info.circle.fill" catalog="system" width="128" height="123"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

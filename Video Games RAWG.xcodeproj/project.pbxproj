@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5E0F8D5E29EE7B0500A0A683 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E0F8D5C29EE7B0500A0A683 /* AboutViewController.swift */; };
+		5E0F8D5F29EE7B0500A0A683 /* AboutViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5E0F8D5D29EE7B0500A0A683 /* AboutViewController.xib */; };
 		5E5C87DA29D0724900EC7912 /* Games.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E5C87D929D0724900EC7912 /* Games.swift */; };
 		5E5C87DC29D0772000EC7912 /* FavoriteRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E5C87DB29D0772000EC7912 /* FavoriteRouter.swift */; };
 		5E5C87DE29D0773300EC7912 /* FavoritePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E5C87DD29D0773300EC7912 /* FavoritePresenter.swift */; };
@@ -58,6 +60,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5E0F8D5C29EE7B0500A0A683 /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
+		5E0F8D5D29EE7B0500A0A683 /* AboutViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AboutViewController.xib; sourceTree = "<group>"; };
 		5E5C87D929D0724900EC7912 /* Games.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Games.swift; sourceTree = "<group>"; };
 		5E5C87DB29D0772000EC7912 /* FavoriteRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteRouter.swift; sourceTree = "<group>"; };
 		5E5C87DD29D0773300EC7912 /* FavoritePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritePresenter.swift; sourceTree = "<group>"; };
@@ -120,6 +124,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5E0F8D5B29EE7AC100A0A683 /* About */ = {
+			isa = PBXGroup;
+			children = (
+				5E0F8D5C29EE7B0500A0A683 /* AboutViewController.swift */,
+				5E0F8D5D29EE7B0500A0A683 /* AboutViewController.xib */,
+			);
+			path = About;
+			sourceTree = "<group>";
+		};
 		5E5C87D829D071B300EC7912 /* Entity */ = {
 			isa = PBXGroup;
 			children = (
@@ -174,6 +187,7 @@
 		5E88CADE29CF98AB00297DD8 /* Video Games RAWG */ = {
 			isa = PBXGroup;
 			children = (
+				5E0F8D5B29EE7AC100A0A683 /* About */,
 				5E5C87D829D071B300EC7912 /* Entity */,
 				5E88CB1329CF99C900297DD8 /* Home */,
 				5E88CB1229CF99C100297DD8 /* Favorite */,
@@ -338,6 +352,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5E88CAEF29CF98AE00297DD8 /* LaunchScreen.storyboard in Resources */,
+				5E0F8D5F29EE7B0500A0A683 /* AboutViewController.xib in Resources */,
 				5E88CAEC29CF98AE00297DD8 /* Assets.xcassets in Resources */,
 				5E88CB1B29CF99F500297DD8 /* FavoriteViewController.xib in Resources */,
 				5E88CB1729CF99DA00297DD8 /* HomeViewController.xib in Resources */,
@@ -389,6 +404,7 @@
 				5E5C87DE29D0773300EC7912 /* FavoritePresenter.swift in Sources */,
 				5E5C87FA29D0B6DA00EC7912 /* GameDetail.swift in Sources */,
 				5E88CB2129CF9B2B00297DD8 /* HomePresenter.swift in Sources */,
+				5E0F8D5E29EE7B0500A0A683 /* AboutViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
